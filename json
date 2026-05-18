@@ -1,0 +1,67 @@
+# ==========================================
+# IMPORTAR LIBRERÍAS
+# ==========================================
+
+import pandas as pd
+import json
+
+# ==========================================
+# CREAR DATOS JSON
+# ==========================================
+
+datos = [
+    {
+        "usuario": "Carlos",
+        "tweet": "Python es increíble",
+        "likes": 15
+    },
+
+    {
+        "usuario": "Ana",
+        "tweet": "No me gusta programar",
+        "likes": 4
+    },
+
+    {
+        "usuario": "Luis",
+        "tweet": "La inteligencia artificial es el futuro",
+        "likes": 30
+    }
+]
+
+# ==========================================
+# GUARDAR JSON
+# ==========================================
+
+with open("tweets.json", "w", encoding="utf-8") as archivo:
+
+    json.dump(
+        datos,
+        archivo,
+        ensure_ascii=False,
+        indent=4
+    )
+
+print("Archivo JSON creado")
+
+# ==========================================
+# LEER JSON CON PANDAS
+# ==========================================
+
+df = pd.read_json("tweets.json")
+
+# ==========================================
+# MOSTRAR INFORMACIÓN
+# ==========================================
+
+print("\nContenido del JSON:\n")
+
+print(df)
+
+# ==========================================
+# INFORMACIÓN GENERAL
+# ==========================================
+
+print("\nInformación del DataFrame:\n")
+
+print(df.info())
