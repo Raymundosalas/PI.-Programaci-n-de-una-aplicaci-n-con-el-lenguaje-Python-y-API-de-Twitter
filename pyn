@@ -1,0 +1,28 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# ==========================================
+# LEER CSV
+# ==========================================
+
+df = pd.read_csv("resultados_twitter.csv")
+
+# ==========================================
+# CONTAR SENTIMIENTOS
+# ==========================================
+
+conteo = df["Sentimiento"].value_counts()
+
+# ==========================================
+# GRÁFICA PASTEL
+# ==========================================
+
+plt.pie(
+    conteo,
+    labels=conteo.index,
+    autopct='%1.1f%%'
+)
+
+plt.title("Porcentaje de Sentimientos")
+
+plt.show()
